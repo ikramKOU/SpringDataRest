@@ -102,13 +102,14 @@ public class CorsConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
-                .cors()
-                .and()
-                .csrf().disable()
-                .authorizeHttpRequests()
-                .requestMatchers("/voitures/**").permitAll()
-                .requestMatchers("/proprietaires/**").permitAll() // autorise l'API voitures
-                .anyRequest().authenticated();
+                .cors(cors -> cors.disable())
+                .csrf(csrf -> csrf.disable())
+                .authorizeHttpRequests(auth -> auth
+                        .requestMatchers("/actuator/**").permitAll()
+                        .requestMatchers("/voitures/**").permitAll()
+                        .requestMatchers("/proprietaires/**").permitAll()
+                        .anyRequest().permitAll()
+                );
         return http.build();
     }
 }

@@ -63,6 +63,12 @@
     <artifactId>hibernate-validator</artifactId>
 </dependency>
 
+		<!-- Spring Boot Actuator -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+
 
         <!-- Springdoc OpenAPI compatible Spring Boot 3 -->
         <dependency>
